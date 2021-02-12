@@ -1,0 +1,29 @@
+img{
+    height: 160px;
+    width: 160px;
+}
+.DataPersonWrapper{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 40px;
+    background: #36205c;
+    color: white;
+}
+.infoPersonWrapper{
+    margin-left: 10px;
+}
+.svgHealth{
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+.progressBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+progress{
+    margin: 0 5px;
+}

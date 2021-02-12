@@ -1,0 +1,43 @@
+.MainWrapper{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding-top: 40px;
+}
+.HabbitsWrap{
+    margin: 20px;
+}
+.HeaderTodoWrapper{
+   display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+}
+.HeaderTodoLinks{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+}
+.HeaderTodoItem{
+
+}
+.HeaderTodoName{
+    font-size: 15px;
+    font-weight: bold;
+}
+.MainToDoWrapper{
+    background: #ebeaec;
+    height: 440px;
+    padding: 15px;
+}
+.InputToDo{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+.HabbitItemWrapper{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    margin-top: 15px;
+    height: 60px;
+    border: 2px solid black;
+    align-items: center;
+}
