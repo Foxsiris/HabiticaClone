@@ -1,10 +1,13 @@
 import React from 'react';
 import '../../css/Header.css'
+import {Link} from "react-router-dom";
 
-function HeaderLinks({name}){
+function HeaderLinks({name,linkPath}){
     return(
         <div className="linkItem">
-            <a href="">{name}</a>
+           <Link to={linkPath}>
+               <a href="">{name}</a>
+           </Link>
         </div>
     )
 }

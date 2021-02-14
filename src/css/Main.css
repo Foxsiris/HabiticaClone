@@ -1,20 +1,24 @@
 .MainWrapper{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    padding-top: 40px;
+    padding-top: 15px;
 }
 .HabbitsWrap{
-    margin: 20px;
+    margin:0 10px;
 }
 .HeaderTodoWrapper{
    display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     align-items: center;
+    margin: 10px;
 }
 .HeaderTodoLinks{
     text-decoration: none;
     color: black;
     font-size: 12px;
+}
+.active{
+    font-size: 30px;
 }
 .HeaderTodoItem{
 

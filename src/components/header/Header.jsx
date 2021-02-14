@@ -9,9 +9,9 @@ function Header(){
             <div className="logo">
                 LOGO
             </div>
-            <HeaderLinks name={'Задачи'}/>
-            <HeaderLinks name={'Инвентарь'}/>
-            <HeaderLinks name={'Лавки'}/>
+            <HeaderLinks name={'Задачи'} linkPath={"/"}/>
+            <HeaderLinks name={'Инвентарь'} linkPath={"/inventory"}/>
+            <HeaderLinks name={'Лавки'} linkPath={"/shop"}/>
         </div>
     )
 }
