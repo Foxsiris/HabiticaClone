@@ -1,16 +1,17 @@
 import React from 'react'
 import InputToDo from "./InputTodo";
 import HabbitItem from "./HabbitItem";
+import {useSelector} from "react-redux";
 
 function MainTodo({placeHolder}){
+    const habbit = useSelector(state=>state.habbit.habbit)
     return(
         <div className="MainToDoWrapper">
             <InputToDo placeHolder={placeHolder}/>
-            <HabbitItem habbit={"Не есть сладкое"} />
-            <HabbitItem habbit={"Не пить лимонад"} />
-            <HabbitItem habbit={"Не играть"} />
+            {habbit.map(el=>{
+                return <HabbitItem habbit={el.title} />
+            })}
         </div>
     )
 }
-
 export default MainTodo

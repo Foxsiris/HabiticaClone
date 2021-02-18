@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../css/Dataperson.css'
 
 function InfoPerson({name}){
     return(
