@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
 import {habbitReducer} from "./habbitReducer";
+import {personReducer} from "./personReducer";
 
 export const rootReducer = combineReducers({
-    habbit:habbitReducer
+    habbit:habbitReducer,
+    infoPerson:personReducer
 })

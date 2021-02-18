@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
 import {createHabbit} from "../../redux/actions";
+import sendRequest from "../../queryServer/sendRequest";
 
 function InputToDo({placeHolder}) {
     const [value, setValue] = React.useState('')
@@ -13,6 +14,7 @@ function InputToDo({placeHolder}) {
             id:Date.now().toString()
         }
         dispatch(createHabbit(newHabbit))
+        sendRequest('POST','http://localhost:3002/create',newHabbit)
         setValue(' ')
     }
 
@@ -22,9 +24,9 @@ function InputToDo({placeHolder}) {
 
     return (
         <div>
-            <form onSubmit={submitDispatch}>
+            <form  method='POST'>
                 <input type="text" className="InputToDo" placeholder={`Добавить ${placeHolder}`} onChange={inputHandler} value={value}/>
-                <button type='submit' >добавить</button>
+                <button type='submit' onClick={submitDispatch}>добавить</button>
             </form>
         </div>
     )
