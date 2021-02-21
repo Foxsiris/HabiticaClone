@@ -46,3 +46,68 @@
     border: 2px solid black;
     align-items: center;
 }
+.modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+
+}
+.modal__content{
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    width: 450px;
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+}
+.modal_header{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.modal_header button{
+  margin: 2px;
+}
+.inputModal{
+    font-size: 15px;
+}
+.modal_header h3{
+    font-size: 20px;
+}
+.chooseModal_wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+}
+ label{
+    font-size: 20px;
+     padding: 10px;
+}
+ .modal__content select{
+     font-size: 15px;
+ }
+.circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+}
