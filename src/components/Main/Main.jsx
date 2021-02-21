@@ -9,8 +9,8 @@ function Main(){
     return(
         <div className="MainWrapper">
             <Habbits name={"Привычки"} placeHolder={"Привычку"} categories={categories_habbit}/>
-            <Habbits name={"Ежедневные дела"} placeHolder={"Ежедневное дело"} categories={categories_evreday}/>
-            <Habbits name={"Задачи"} placeHolder={"Задачу"} categories={categories_tasks}/>
+            {/*<Habbits name={"Ежедневные дела"} placeHolder={"Ежедневное дело"} categories={categories_evreday}/>*/}
+            {/*<Habbits name={"Задачи"} placeHolder={"Задачу"} categories={categories_tasks}/>*/}
         </div>
 
     )

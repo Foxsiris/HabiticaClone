@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {addExpirence, minusHealth} from "../../redux/actions";
+import HabbitForm from "./HabbitForm";
 
 
 function HabbitItem({habbit}){
@@ -29,6 +30,7 @@ function HabbitItem({habbit}){
         dispatch(addExpirence(newInfoPerson))
     }
 
+
     return(
         <div className="HabbitItemWrapper">
             <div>
@@ -37,7 +39,7 @@ function HabbitItem({habbit}){
                 </div>
             </div>
             <div>
-                {habbit}
+                <div> {habbit}</div>
             </div>
             <div className="MinusHabbit">
                 <div>
