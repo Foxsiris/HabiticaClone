@@ -111,3 +111,34 @@
     padding-right: 0;
     font-size: 16px;
 }
+
+.modall{
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+
+}
+.modal__contentl{
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    width: 200px;
+    height: 30px;
+    margin-top: 140px;
+    margin-right:180px;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modall.activel{
+    opacity: 1;
+    pointer-events: all;
+}

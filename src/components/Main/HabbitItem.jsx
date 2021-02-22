@@ -1,57 +1,69 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {addExpirence, minusHealth} from "../../redux/actions";
-import HabbitForm from "./HabbitForm";
 import ModalHabbit from "./modalHabbit";
+import NotificationHealth from "./NotificationHealth";
+import NotificationExp from "./NotificationExp";
 
 
 function HabbitItem({habbit}) {
     const dispatch = useDispatch()
     const data = useSelector(state => state.infoPerson.infoPerson)
     const [modalActive, setModalActive] = React.useState(false)
+    const [notificatioActive, setNotificatioActive] = React.useState(false)
+    const [damage, setDamage] = React.useState(0)
+    const [exp, setExp] = React.useState(0)
+    const [notificatioActiveExp, setNotificatioActiveExp] = React.useState(false)
 
 
     function minusHealt() {
-        let damageHealh = 0
         if (habbit.complexity === "Пустяк") {
-            damageHealh = 2
+            setDamage(2)
         } else if (habbit.complexity === 'Легко') {
-            damageHealh = 5
+            setDamage(5)
         } else if (habbit.complexity === 'Нормально') {
-            damageHealh = 7
+            setDamage(7)
         } else if (habbit.complexity === 'Сложно') {
-            damageHealh = 10
+            setDamage(10)
         }
         const newInfoPerson = {
             name: 'Daniil',
             level: data.level,
-            health: data.health - damageHealh,
+            health: data.health - damage,
             expirince: data.expirince,
             class: 'Воин'
         }
         dispatch(minusHealth(newInfoPerson))
+        setNotificatioActive(true)
+        setTimeout(()=>{
+            setNotificatioActive(false)
+        },2000)
 
     }
 
     function addExp() {
-        let addExp = 0
+
         if (habbit.complexity === "Пустяк") {
-            addExp = 2
+            setExp(2)
         } else if (habbit.complexity === 'Легко') {
-            addExp = 5
+            setExp(5)
         } else if (habbit.complexity === 'Нормально') {
-            addExp = 7
+            setExp(7)
         } else if (habbit.complexity === 'Сложно') {
-            addExp = 10
+            setExp(10)
         }
         const newInfoPerson = {
             name: 'Daniil',
             level: data.level,
             health: data.health,
-            expirince: data.expirince + addExp,
+            expirince: data.expirince + exp,
             class: 'Воин'
         }
         dispatch(addExpirence(newInfoPerson))
+        setNotificatioActiveExp(true)
+        setTimeout(()=>{
+            setNotificatioActiveExp(false)
+        },2000)
     }
 
 
@@ -72,6 +84,9 @@ function HabbitItem({habbit}) {
                 </div>
             </div>
             <ModalHabbit active={modalActive} setActive={setModalActive} habbit={habbit}/>
+            <NotificationHealth active={notificatioActive}  damage={damage} />
+            <NotificationExp active={notificatioActiveExp} exp={exp}/>
+
         </div>
     )
 }
