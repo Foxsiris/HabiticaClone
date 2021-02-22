@@ -12,7 +12,8 @@ function InputToDo({placeHolder}) {
         const newHabbit = {
             title:value,
             id:Date.now().toString(),
-            type:'good'
+            type:'good',
+            complexity:'Пустяк'
         }
         dispatch(createHabbit(newHabbit))
         sendRequest('POST','http://localhost:3002/create',newHabbit)

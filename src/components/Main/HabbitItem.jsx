@@ -5,42 +5,64 @@ import HabbitForm from "./HabbitForm";
 import ModalHabbit from "./modalHabbit";
 
 
-function HabbitItem({habbit}){
+function HabbitItem({habbit}) {
     const dispatch = useDispatch()
-    const data = useSelector(state=>state.infoPerson.infoPerson)
-    const [modalActive,setModalActive] = React.useState(false)
+    const data = useSelector(state => state.infoPerson.infoPerson)
+    const [modalActive, setModalActive] = React.useState(false)
 
-    function minusHealt(){
+
+    function minusHealt() {
+        let damageHealh = 0
+        if (habbit.complexity === "Пустяк") {
+            damageHealh = 2
+        } else if (habbit.complexity === 'Легко') {
+            damageHealh = 5
+        } else if (habbit.complexity === 'Нормально') {
+            damageHealh = 7
+        } else if (habbit.complexity === 'Сложно') {
+            damageHealh = 10
+        }
         const newInfoPerson = {
             name: 'Daniil',
             level: data.level,
-            health: data.health-5,
+            health: data.health - damageHealh,
             expirince: data.expirince,
             class: 'Воин'
         }
         dispatch(minusHealth(newInfoPerson))
 
     }
-    function addExp(){
+
+    function addExp() {
+        let addExp = 0
+        if (habbit.complexity === "Пустяк") {
+            addExp = 2
+        } else if (habbit.complexity === 'Легко') {
+            addExp = 5
+        } else if (habbit.complexity === 'Нормально') {
+            addExp = 7
+        } else if (habbit.complexity === 'Сложно') {
+            addExp = 10
+        }
         const newInfoPerson = {
             name: 'Daniil',
             level: data.level,
             health: data.health,
-            expirince: data.expirince+5,
+            expirince: data.expirince + addExp,
             class: 'Воин'
         }
         dispatch(addExpirence(newInfoPerson))
     }
 
 
-    return(
+    return (
         <div className="HabbitItemWrapper">
             <div>
                 <div className="plusHabbit">
-                   <button onClick={addExp}> +</button>
+                    <button onClick={addExp}> +</button>
                 </div>
             </div>
-            <div onClick={()=>setModalActive(true)}>
+            <div onClick={() => setModalActive(true)}>
                 <div> {habbit.title}</div>
 
             </div>

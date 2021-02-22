@@ -6,14 +6,17 @@ function ModalHabbit({active, setActive,habbit}) {
     const dispatch = useDispatch()
     const [value, setValue] = React.useState(habbit.title)
     const [habbitType,sethabbitType] = React.useState('good')
+    const [level,setLevel] =React.useState('Пустяк')
 
     function saveChangedHabbit(e) {
         e.preventDefault()
         const changedHabbit = {
             title:value,
             id:habbit.id,
-            type:habbitType
+            type:habbitType,
+            complexity:level
         }
+
         dispatch(changeHabbit(changedHabbit))
         setActive(false)
     }
@@ -30,6 +33,9 @@ function ModalHabbit({active, setActive,habbit}) {
     }
     function badHabbit(){
         sethabbitType('bad')
+    }
+    function chooseHabbit(e){
+        setLevel(e.target.value)
     }
 
     return (
@@ -65,11 +71,11 @@ function ModalHabbit({active, setActive,habbit}) {
                 </div>
                 <div>
                     <label htmlFor="">Сложность</label>
-                    <select name="" id="">
-                        <option value="">Пустяк</option>
-                        <option value="">Легко</option>
-                        <option value="">Нормально</option>
-                        <option value="">Сложно</option>
+                    <select name="" id="" onChange={chooseHabbit}>
+                        <option value="Пустяк">Пустяк</option>
+                        <option value="Легко">Легко</option>
+                        <option value="Нормально">Нормально</option>
+                        <option value="Сложно">Сложно</option>
                     </select>
                 </div>
                 <div>
