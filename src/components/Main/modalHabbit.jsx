@@ -1,9 +1,29 @@
 import React from 'react'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {changeHabbit, createHabbit, deleteHabbit} from "../../redux/actions";
 
 function ModalHabbit({active, setActive,habbit}) {
-    const data = useSelector(state=>state.habbit.habbit)
-    console.log(data)
+    const dispatch = useDispatch()
+    const [value, setValue] = React.useState(habbit.title)
+
+    function saveChangedHabbit(e) {
+        e.preventDefault()
+        const changedHabbit = {
+            title:value,
+            id:habbit.id
+        }
+        dispatch(changeHabbit(changedHabbit))
+        setActive(false)
+    }
+
+    function inputChangerHandler(e) {
+        setValue(e.target.value)
+    }
+    function delHabbit(){
+        dispatch(deleteHabbit(habbit.id))
+        setActive(false)
+    }
+
     return (
         <div className={active?"modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
@@ -12,12 +32,12 @@ function ModalHabbit({active, setActive,habbit}) {
                         <h3>Изменить привычку</h3>
                     </div>
                     <div>
-                        <button className="btn btn-outline-danger btn-sm">отмена</button>
-                        <button className="btn btn-outline-primary btn-sm">сохранить</button>
+                        <button className="btn btn-outline-danger btn-sm" onClick={() => setActive(false)}>отмена</button>
+                        <button className="btn btn-outline-primary btn-sm" onClick={saveChangedHabbit}>сохранить</button>
                     </div>
                 </div>
                 <div>
-                    <input type="text" className="inputModal" value={habbit}/>
+                    <input type="text" className="inputModal" value={value} onChange={inputChangerHandler}/>
                 </div>
                 <div>
                     <div className="chooseModal_wrapper">
@@ -45,7 +65,7 @@ function ModalHabbit({active, setActive,habbit}) {
                     </select>
                 </div>
                 <div>
-                    <button className="btn btn-outline-danger btn-sm">УДАЛИТЬ ПРИВЫЧКУ</button>
+                    <button className="btn btn-outline-danger btn-sm" onClick={delHabbit}>УДАЛИТЬ ПРИВЫЧКУ</button>
                 </div>
             </div>
         </div>

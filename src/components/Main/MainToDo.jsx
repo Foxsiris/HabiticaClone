@@ -9,7 +9,7 @@ function MainTodo({placeHolder}){
         <div className="MainToDoWrapper">
             <InputToDo placeHolder={placeHolder}/>
             {habbit.map(el=>{
-                return <HabbitItem habbit={el.title} />
+                return <HabbitItem habbit={el} />
             })}
         </div>
     )

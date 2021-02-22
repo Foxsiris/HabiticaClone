@@ -1,4 +1,4 @@
-import {ADD_EXPIRENCE, ADD_HABBIT, MINUS_HEALTH} from "./types";
+import {ADD_EXPIRENCE, ADD_HABBIT, CHANGE_HABBIT, DELETE_HABBIT, MINUS_HEALTH} from "./types";
 
 export function createHabbit(habbit){
     return {
@@ -6,6 +6,20 @@ export function createHabbit(habbit){
         payload:habbit
     }
 }
+
+export function changeHabbit(habbit){
+    return {
+        type:CHANGE_HABBIT,
+        payload:habbit
+    }
+}
+export function deleteHabbit(habbit){
+    return {
+        type:DELETE_HABBIT,
+        payload:habbit
+    }
+}
+
 
 export function minusHealth(data){
     return {

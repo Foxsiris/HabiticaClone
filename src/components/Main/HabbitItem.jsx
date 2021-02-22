@@ -41,7 +41,7 @@ function HabbitItem({habbit}){
                 </div>
             </div>
             <div onClick={()=>setModalActive(true)}>
-                <div> {habbit}</div>
+                <div> {habbit.title}</div>
 
             </div>
             <div className="MinusHabbit">
