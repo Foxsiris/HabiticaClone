@@ -11,7 +11,8 @@ function InputToDo({placeHolder}) {
         e.preventDefault()
         const newHabbit = {
             title:value,
-            id:Date.now().toString()
+            id:Date.now().toString(),
+            type:'good'
         }
         dispatch(createHabbit(newHabbit))
         sendRequest('POST','http://localhost:3002/create',newHabbit)

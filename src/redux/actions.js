@@ -20,7 +20,6 @@ export function deleteHabbit(habbit){
     }
 }
 
-
 export function minusHealth(data){
     return {
         type:MINUS_HEALTH,

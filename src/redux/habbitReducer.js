@@ -1,7 +1,7 @@
 import {ADD_HABBIT, CHANGE_HABBIT, DELETE_HABBIT} from "./types";
 
 const initialState = {
-    habbit: []
+    habbit: [],
 }
 
 export const habbitReducer = (state = initialState, action) => {
@@ -10,12 +10,11 @@ export const habbitReducer = (state = initialState, action) => {
             return {...state, habbit: state.habbit.concat([action.payload])}
         case CHANGE_HABBIT: {
             let changedHabbit = state.habbit.map(el => {
-                return el.id === action.payload.id ? {title: action.payload.title, id: action.payload.id} : el
+                return el.id === action.payload.id ? {title: action.payload.title, id: action.payload.id,type:action.payload.type} : el
             })
             return {...state, habbit: changedHabbit}
         }
         case DELETE_HABBIT: {
-            console.log(typeof action.payload)
             const habbitAfterDelete = state.habbit.filter(el => {
                 return el.id !== action.payload
             })

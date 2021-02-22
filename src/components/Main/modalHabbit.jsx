@@ -5,12 +5,14 @@ import {changeHabbit, createHabbit, deleteHabbit} from "../../redux/actions";
 function ModalHabbit({active, setActive,habbit}) {
     const dispatch = useDispatch()
     const [value, setValue] = React.useState(habbit.title)
+    const [habbitType,sethabbitType] = React.useState('good')
 
     function saveChangedHabbit(e) {
         e.preventDefault()
         const changedHabbit = {
             title:value,
-            id:habbit.id
+            id:habbit.id,
+            type:habbitType
         }
         dispatch(changeHabbit(changedHabbit))
         setActive(false)
@@ -22,6 +24,12 @@ function ModalHabbit({active, setActive,habbit}) {
     function delHabbit(){
         dispatch(deleteHabbit(habbit.id))
         setActive(false)
+    }
+    function goodHabbit(){
+        sethabbitType('good')
+    }
+    function badHabbit(){
+        sethabbitType('bad')
     }
 
     return (
@@ -42,10 +50,10 @@ function ModalHabbit({active, setActive,habbit}) {
                 <div>
                     <div className="chooseModal_wrapper">
                         <div>
-                            <button className="circle btn btn-success">+</button>
+                            <button className="circle btn btn-success" onClick={goodHabbit}>+</button>
                         </div>
                         <div>
-                            <button className="circle btn btn-warning">-</button>
+                            <button className="circle btn btn-warning" onClick={badHabbit}>-</button>
                         </div>
                         <div>
                             <label htmlFor="">Полезная</label>
