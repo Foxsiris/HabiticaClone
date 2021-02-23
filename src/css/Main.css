@@ -3,9 +3,10 @@
     grid-template-columns: repeat(4,1fr);
     padding-top: 15px;
     text-align: center;
+    background-color: #cac8c8;
 }
 .HabbitsWrap{
-    margin:0 10px;
+    margin:10px 10px;
 }
 .HeaderTodoWrapper{
    display: grid;
@@ -35,7 +36,6 @@
 }
 .InputToDo{
     width: 100%;
-    height: 50px;
     text-align: center;
 }
 .HabbitItemWrapper{
@@ -43,13 +43,19 @@
     grid-template-columns: 1fr 5fr 1fr;
     margin-top: 15px;
     height: 60px;
-    border: 2px solid black;
+    border: 2px solid #244ee2;
     align-items: center;
+    background-color: #fdfdfd;
+    border-radius: 5px;
+}
+.HabbitItemWrapper:hover{
+    border: 2px solid #437cf5;
+
 }
 .modal{
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(120, 172, 238,0.4);
     position: fixed;
     left: 0;
     top: 0;
@@ -66,24 +72,57 @@
     border-radius: 12px;
     background-color: white;
     width: 450px;
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    align-items: center;
 }
 .modal.active{
     opacity: 1;
     pointer-events: all;
 }
 .modal_header{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     justify-content: space-between;
     margin-bottom: 20px;
+    align-items: center;
 }
+.buttn{
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+}
+
 .modal_header button{
   margin: 2px;
 }
 .inputModal{
     font-size: 15px;
+}
+.inputFormToDo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.inputFormToDo div{
+   margin: 0 8px;
+}
+.inputFormToDo input{
+    border: 3px solid #1d3de0;
+    border-radius: 5px;
+}
+.btnHabbit{
+    width: 100%;
+    height: 56px;
+    border: none;
+    outline: none;
+    background-color: #47c4c8;
+}
+.btnHabbit:hover{
+    font-size: 25px;
+    color: white;
 }
 .modal_header h3{
     font-size: 20px;

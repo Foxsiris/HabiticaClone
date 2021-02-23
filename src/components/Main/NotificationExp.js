@@ -1,6 +1,6 @@
 import React from 'react'
 
-function HotificationExp({active,setNotificatioActive,exp}){
+function HotificationExp({active,exp}){
 
     return(
         <div className={active?"modall activel" : "modall"} >

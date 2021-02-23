@@ -71,7 +71,7 @@ function HabbitItem({habbit}) {
         <div className="HabbitItemWrapper">
             <div>
                 <div className="plusHabbit">
-                    <button onClick={addExp}> +</button>
+                    <button onClick={addExp} className="btnHabbit"> +</button>
                 </div>
             </div>
             <div onClick={() => setModalActive(true)}>
@@ -80,7 +80,7 @@ function HabbitItem({habbit}) {
             </div>
             <div className="MinusHabbit">
                 <div>
-                    <button onClick={minusHealt} type="submit">-</button>
+                    <button onClick={minusHealt} type="submit" className="btnHabbit">-</button>
                 </div>
             </div>
             <ModalHabbit active={modalActive} setActive={setModalActive} habbit={habbit}/>

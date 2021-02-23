@@ -25,11 +25,13 @@ function InputToDo({placeHolder}) {
     }
 
     return (
-        <div>
-            <form  method='POST'>
+        <div className="inputFormToDo">
+            <div>
                 <input type="text" className="InputToDo" placeholder={`Добавить ${placeHolder}`} onChange={inputHandler} value={value}/>
-                <button type='submit' onClick={submitDispatch}>добавить</button>
-            </form>
+            </div>
+            <div>
+                <button type='submit' className="btn btn-outline-primary btn-sm" onClick={submitDispatch}>добавить</button>
+            </div>
         </div>
     )
 }

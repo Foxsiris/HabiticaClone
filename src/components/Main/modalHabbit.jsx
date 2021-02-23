@@ -45,7 +45,7 @@ function ModalHabbit({active, setActive,habbit}) {
                     <div>
                         <h3>Изменить привычку</h3>
                     </div>
-                    <div>
+                    <div className="buttn">
                         <button className="btn btn-outline-danger btn-sm" onClick={() => setActive(false)}>отмена</button>
                         <button className="btn btn-outline-primary btn-sm" onClick={saveChangedHabbit}>сохранить</button>
                     </div>

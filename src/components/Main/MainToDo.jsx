@@ -21,7 +21,7 @@ function MainTodo({placeHolder, name, categories}) {
                 </div>
                 {categories.map(el => {
                     return <div className="HeaderTodoItem">
-                        <button className="HeaderTodoLinks" onClick={() => {
+                        <button className="HeaderTodoLinks btn btn-primary" onClick={() => {
                             t(el)
                         }}> {el}</button>
                     </div>
