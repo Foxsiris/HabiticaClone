@@ -1,6 +1,7 @@
 import React from 'react'
 import Habbits from "./Habbits";
 import '../../css/Main.css'
+import EveryTodos from "./EveryTodos";
 
 function Main(){
     let categories_habbit = ['Все','Слабые','Сильные']
@@ -9,8 +10,7 @@ function Main(){
     return(
         <div className="MainWrapper">
             <Habbits name={"Привычки"} placeHolder={"Привычку"} categories={categories_habbit}/>
-            {/*<Habbits name={"Ежедневные дела"} placeHolder={"Ежедневное дело"} categories={categories_evreday}/>*/}
-            {/*<Habbits name={"Задачи"} placeHolder={"Задачу"} categories={categories_tasks}/>*/}
+            <EveryTodos name={"Задачи"} placeHolder={"Дело"} categories={categories_tasks}/>
         </div>
 
     )

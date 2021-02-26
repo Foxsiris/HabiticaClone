@@ -3,10 +3,11 @@ import InputToDo from "./InputTodo";
 import HabbitItem from "./HabbitItem";
 import {useDispatch, useSelector} from "react-redux";
 import InputToDosEveryDay from "./InputToDosEveryDay";
+import EveryToDoItem from "./EveryToDoItem";
 
 
 function MainTodo({placeHolder, name, categories}) {
-    const habbit = useSelector(state => state.habbit.habbit)
+    const todos = useSelector(state => state.todo.todo)
     const [value, setValue] = React.useState('Все')
 
     function t(el) {
@@ -27,16 +28,11 @@ function MainTodo({placeHolder, name, categories}) {
                     </div>
                 })}
             </div>
-            <InputToDo placeHolder={placeHolder}/>
-            {value === 'Слабые' ? habbit.filter(el => {return el.type === 'bad'}).map(el => {
-                    return <HabbitItem habbit={el}/>
-                })  :
-                value === 'Сильные' ? habbit.filter(el => {return el.type === 'good'}).map(el => {
-                        return <HabbitItem habbit={el}/>
-                    })  :
-                habbit.map(el => {
-                    return <HabbitItem habbit={el}/>
-                })
+            <InputToDosEveryDay placeHolder={placeHolder}/>
+            {
+                    todos.map(el => {
+                        return <EveryToDoItem todo={el}/>
+                    })
             }
         </div>
     )

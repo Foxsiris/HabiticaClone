@@ -181,3 +181,6 @@
     opacity: 1;
     pointer-events: all;
 }
+.MainToDoEveryDay{
+    text-decoration:line-through;
+}

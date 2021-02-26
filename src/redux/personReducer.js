@@ -17,7 +17,7 @@ export const personReducer = (state = initialState, action) => {
                 return {...state, infoPerson: action.payload}
 
             } else {
-                state.infoPerson.level++
+                ++state.infoPerson.level
                 state.infoPerson.expirince = 0
                 state.infoPerson.health = 100
             }
