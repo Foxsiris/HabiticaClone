@@ -6,8 +6,5 @@ export default function sendRequest(method,url,body){
         method:method,
         body:JSON.stringify(body),
         headers:headers
-    }).then(response=>{
-        console.log(body)
-        return response.json()
     })
 }

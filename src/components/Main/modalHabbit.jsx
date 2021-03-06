@@ -1,53 +1,62 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {changeHabbit, createHabbit, deleteHabbit} from "../../redux/actions";
+import axios from "axios";
 
-function ModalHabbit({active, setActive,habbit}) {
+function ModalHabbit({active, setActive, habbit}) {
+    const levels = ['Пустяк', 'Легко', 'Нормально', 'Сложно']
     const dispatch = useDispatch()
     const [value, setValue] = React.useState(habbit.title)
-    const [habbitType,sethabbitType] = React.useState('good')
-    const [level,setLevel] =React.useState('Пустяк')
+    const [habbitType, sethabbitType] = React.useState('good')
+    const [level, setLevel] = React.useState('Пустяк')
 
     function saveChangedHabbit(e) {
         e.preventDefault()
         const changedHabbit = {
-            title:value,
-            id:habbit.id,
-            type:habbitType,
-            complexity:level
+            title: value,
+            id: habbit.id,
+            type: habbitType,
+            complexity: level
         }
-
-        dispatch(changeHabbit(changedHabbit))
+        // dispatch(changeHabbit(changedHabbit))
+        axios.put(`http://localhost:3001/habbits/${habbit.id}`, changedHabbit)
         setActive(false)
     }
 
     function inputChangerHandler(e) {
         setValue(e.target.value)
     }
-    function delHabbit(){
-        dispatch(deleteHabbit(habbit.id))
+
+    function delHabbit() {
+        axios.delete(`http://localhost:3001/habbits/${habbit.id}`)
+        // dispatch(deleteHabbit(habbit.id))
         setActive(false)
     }
-    function goodHabbit(){
+
+    function goodHabbit() {
         sethabbitType('good')
     }
-    function badHabbit(){
+
+    function badHabbit() {
         sethabbitType('bad')
     }
-    function chooseHabbit(e){
+
+    function chooseHabbit(e) {
         setLevel(e.target.value)
     }
 
     return (
-        <div className={active?"modal active" : "modal"} onClick={() => setActive(false)}>
+        <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 <div className="modal_header">
                     <div>
                         <h3>Изменить привычку</h3>
                     </div>
                     <div className="buttn">
-                        <button className="btn btn-outline-danger btn-sm" onClick={() => setActive(false)}>отмена</button>
-                        <button className="btn btn-outline-primary btn-sm" onClick={saveChangedHabbit}>сохранить</button>
+                        <button className="btn btn-outline-danger btn-sm" onClick={() => setActive(false)}>отмена
+                        </button>
+                        <button className="btn btn-outline-primary btn-sm" onClick={saveChangedHabbit}>сохранить
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -72,10 +81,10 @@ function ModalHabbit({active, setActive,habbit}) {
                 <div>
                     <label htmlFor="">Сложность</label>
                     <select name="" id="" onChange={chooseHabbit}>
-                        <option value="Пустяк">Пустяк</option>
-                        <option value="Легко">Легко</option>
-                        <option value="Нормально">Нормально</option>
-                        <option value="Сложно">Сложно</option>
+                        {levels.map(el => {
+                            return <option value={el} >{el}</option>
+                        })}
+
                     </select>
                 </div>
                 <div>
